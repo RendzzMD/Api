@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rendz API</title>
+    <meta name="author" content="Rendzz">
+    <meta name="title" content="Rendz API | Restful API">
+    <meta name="description" content="Rendzz API adalah platform REST API yang sangat handal dan mudah digunakan. Dengan antarmuka yang intuitif, pengguna dapat dengan mudah mengakses dan mengintegrasikan berbagai sumber daya data.">
+    <meta name="keywords" content="Rendz, Rendzz API, Rendz, Rendz API, Rendz, rendzoffc, rendzzoof, web">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://api.rendzz.web.id">
+    <meta property="og:title" content="Rendzz API | Restful API">
+    <meta property="og:description" content="Rendzz API adalah platform REST API yang sangat handal dan mudah digunakan. Dengan antarmuka yang intuitif, pengguna dapat dengan mudah mengakses dan mengintegrasikan berbagai sumber daya data.">
+    <meta property="og:image" content="https://tikdownloader.xyz/agatzh.jpg">
+    <meta property="og:site_name" content="Rendzz API, Web Restful API">
+     <link href="https://tikdownloader.xyz/agatag.png" rel="icon">
+    <link href="https://tikdownloader.xyz/agatag.png" rel="apple-touch-icon">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700|Roboto" rel="stylesheet" type="text/css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+        .description {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.2rem;
+        }
+        .clock {
+            font-size: 1.2rem;
+            margin: 20px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #2b2b2b;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-right: 1px solid #333333;
+        }
+        th {
+            background-color: #333333;
+            font-weight: bold;
+        }
+        th:last-child, td:last-child {
+            border-right: none;
+        }
+        tr:nth-child(even) {
+            background-color: #242424;
+        }
+        tr:hover {
+            background-color: #333333;
+        }
+        a {
+            color: #1e90ff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #63a4ff;
+        }
+        footer {
+            margin-top: 20px;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #bbbbbb;
+        }
+        @media (max-width: 900px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            .description {
+                font-size: 1rem;
+            }
+            th, td {
+                padding: 10px;
+            }
+        }
+        @media (max-width: 400px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .description {
+                font-size: 0.9rem;
+            }
+            th, td {
+                padding: 8px;
+            }
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #2b2b2b;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            border-radius: 10px;
+            overflow: hidden;
+            top: 100%; 
+            left: 0;
+            opacity: 0; 
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease, transform 0.3s ease; 
+        }
+
+        .dropdown-content a {
+            color: #ffffff;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #3e3e3e;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+            opacity: 1; 
+            transform: translateY(0);
+        }
+        .whatsapp-button {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.whatsapp-button button {
+    background-color: #25D366; /* Warna khas WhatsApp */
+    color: #ffffff;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.whatsapp-button button:hover {
+    background-color: #1EBE57;
+    transform: scale(1.05);
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Rendzz API</h1>
+        <div class="description">
+            Welcome To Rendz, Rest API's
+            <div id="MyClockDisplay" class="clock"></div>
+            <div class="whatsapp-button">
+    </a>
+</div>
+            <h3>Artificial Intelligence</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Name</th>
+                        <th>Method</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Ragbot AI</td>
+                        <td>GET</td>
+                        <td><a href="/api/ragbot?message=hai">[ ➠ ]</a></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Degreeguru AI</td>
+                        <td>GET</td>
+                        <td><a href="/api/degreeguru?message=hai">[ ➠ ]</a></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>SmartContract AI</td>
+                        <td>GET</td>
+                        <td><a href="/api/smartcontract?message=hai">[ ➠ ]</a></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Blackbox AI</td>
+                        <td>GET</td>
+                        <td><a href="/api/blackboxAIChat?message=hai&webSearchMode=true">[ ➠ ]</a></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Mario AI</td>
+                        <td>GET</td>
+                        <td><a href="/api/mario?message=lu siapa ya">[ ➠ ]</a></td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Gemini AI</td>
+                        <td>GET</td>
+                        <td><a href="/api/gemini?message=halo">[ ➠ ]</a></td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>SimSimi AI</td>
+                        <td>GET</td>
+                        <td><a href="/api/simsimi?message=halo">[ ➠ ]</a></td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>OPENAI</td>
+                        <td>GET</td>
+                        <td><a href="/api/openai?message=halo">[ ➠ ]</a></td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>GPT4o</td>
+                        <td>GET</td>
+                        <td><a href="/api/gpt4o?message=halo">[ ➠ ]</a></td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>Magicstudio</td>
+                        <td>GET</td>
+                        <td><a href="/api/magicstudio?message=wooden chairs">[ ➠ ]</a></td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>Diffusion</td>
+                        <td>GET</td>
+                        <td><a href="/api/diffusion?message=wooden chairs">[ ➠ ]</a></td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>MEGPT</td>
+                        <td>GET</td>
+                        <td><a href="/api/megpt?message=hai">[ ➠ ]</a></td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>Photoleap AI</td>
+                        <td>GET</td>
+                        <td><a href="/api/photoleap?message=girls">[ ➠ ]</a></td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>Text To Speech</td>
+                        <td>GET</td>
+                        <td><a href="/api/tts?message=hai hehe">[ ➠ ]</a></td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td>Jadianime</td>
+                        <td>GET</td>
+                        <td><a href="/api/jadianime?url=https://i.pinimg.com/736x/f9/5a/f8/f95af8037722f02b8eb1f4547d760c62.jpg">[ ➠ ]</a></td>
+                    </tr>
+                    <tr>
+                        <td>17</td>
+                        <td>Jadizombie</td>
+                        <td>GET</td>
+                        <td><a href="/api/jadizombie?url=https://i.pinimg.com/736x/f7/22/05/f72205021c444bc5f35e17dfde2e9824.jpg">[ ➠ ]</a></td>
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        <td>Remini</td>
+                        <td>GET</td>
+                        <td><a href="/api/remini?url=https://i.pinimg.com/736x/b1/60/fb/b160fb18d8189eb8797ac8235578307d.jpg">[ ➠ ]</a></td>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td>Farid AI</td>
+                        <td>GET</td>
+                        <td><a href="/api/farid?q=">[ ➠ ]</a></td>
+                    </tr>
+                    <tr>
+                        <td>20</td>
+                        <td>Cutout AI</td>
+                        <td>GET</td>
+                        <td><a href="/api/cutout?prompt=cow&type=Glowing Forest">[ ➠ ]</a></td>
+                    </tr>
+                    <tr>
+                        <td>21</td>
+                        <td>Voiceover AI</td>
+                        <td>GET</td>
+                        <td><a href="/api/voiceover?text=cow&model=">[ ➠ ]</a></td>
+                    </tr>
+                    <tr>
+                        <td>22</td>
+                        <td>Gptlogic AI</td>
+                        <td>GET</td>
+                        <td><a href="/api/gptlogic?logic=Generate%20humanized%20chatgpt%20text%20in%20Indonesian,%20you%20are%20an%20AI%20assistant%20named%20Farid&p=hai">[ ➠ ]</a></td>
+                    </tr>
+                    <tr>
+                    <td>23</td>
+                        <td>Perplexity AI</td>
+                        <td>GET</td>
+                        <td><a href="/api/perplexity?model=llama-3.1-sonar-small-128k-chat&q=siapa agatz">[ ➠ ]</a></td>
+                    </tr>
+                    <tr>              
+                        <td>24</td>
+                        <td>Gptimg AI</td>
+                        <td>GET</td>
+                        <td><a href="/api/gptimg?prompt=mario orange cap">[ ➠ ]</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3>Downloader</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Name</th>
+                        <th>Method</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Facebook Downloader</td>
+                        <td>GET</td>
+                        <td><a href="/api/facebook?url=https://www.facebook.com/reel/947495549897838">[ ➠ ]</a></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Mediafire Downloader</td>
+                        <td>GET</td>
+                        <td><a href="/api/mediafire?url=https://www.mediafire.com/file/s9co8o5n5ftch9q/RULLMDV5.7z/file">[ ➠ ]</a></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>YTMP3 Downloader</td>
+                        <td>GET</td>
+                        <td><a href="/api/ytmp3?url=https://youtube.com/watch?v=hR9bXDE8QdA">[ ➠ ]</a></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Instagram Downloader</td>
+                        <td>GET</td>
+                        <td><a href="/api/instagram?url=https://www.instagram.com/reel/C8VF8e4So2_/?igsh=MWpqaXBqNnFtbm9jcg==">[ ➠ ]</a></td>
+                    </tr>
+<tr>
+                        <td>5</td>
+                        <td>Douyin Downloader</td>
+                        <td>GET</td>
+                        <td><a href="/api/douyin?url=https://v.douyin.com/ijTGMcDu">[ ➠ ]</a></td>
+</tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Tiktok Downloader</td>
+                        <td>GET</td>
+                        <td><a href="/api/tiktok?url=https://vt.tiktok.com/ZS24ShS1n/">[ ➠ ]</a></td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Capcut Downloader</td>
+                        <td>GET</td>
+                        <td><a href="/api/capcut?url=https://www.capcut.com/t/Zs8MPAKjG/">[ ➠ ]</a></td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Pinterest Downloader</td>
+                        <td>POST</td>
+                        <td><a href="/api/pinterest?url=https://id.pinterest.com/pin/575757133623547811/">[ ➠ ]</a></td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Pixeldrain Downloader</td>
+                        <td>GET</td>
+                        <td><a href="/api/pixeldrain?url=https://pixeldrain.com/u/VVR1r3uJ">[ ➠ ]</a></td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Twitter Downloader</td>
+                        <td>GET</td>
+                        <td><a href="/api/twitter?url=https://twitter.com/Eminem/status/943590594491772928">[ ➠ ]</a></td>
+                    </tr>
+                                        <tr>
+                        <td>11</td>
+                        <td>Threads Downloader</td>
+                        <td>GET</td>
+                        <td><a href="/api/threads?url=https://www.threads.net/@kalekkl/post/C8bhQGPyKEm/?xmt=AQGzc5jjHV_aIKyD-2Y6zHlDCXA6Pv7PEZZnAvMVJx7UJg">[ ➠ ]</a></td>      
+                            </tr>
+                       <tr>
+                        <td>12</td>
+                        <td>YTMP4 Downloader</td>
+                        <td>GET</td>
+                        <td><a href="/api/ytmp4?url=https://youtu.be/FVhV9s34c5c?si=x9RIpWdfGyEjqNTJ">[ ➠ ]</a></td>
+                                        </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>Videy Downloader</td>
+                        <td>GET</td>
+                        <td><a href="/api/videydl?url=https://videy.co/v?id=6eWSwq2t">[ ➠ ]</a></td>
+                                        </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>Spotify Downloader</td>
+                        <td>GET</td>
+                        <td><a href="/api/spotifydl?url=https://open.spotify.com/track/2Tp8vm7MZIb1nnx1qEGYv5">[ ➠ ]</a></td>
+                                        </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>Snackvideo Downloader</td>
+                        <td>GET</td>
+                        <td><a href="/api/snackvideodl?url=https://s.snackvideo.com/p/j9jKr9dR">[ ➠ ]</a></td>
+                                        </tr>
+                    <tr>
+                        <td>16</td>
+                        <td>Terabox Downloader</td>
+                        <td>GET</td>
+                        <td><a href="/api/teraboxdl?url=">[ ➠ ]</a></td>
+                                        </tr>
+                    <tr>
+                        <td>17</td>
+                        <td>Drive Downloader</td>
+                        <td>GET</td>
+                        <td><a href="/api/drivedl?url=https://drive.google.com/file/d/11fbbyC2x-oFch2qzS9E4jMX7HTqlaFnG/view?usp=drivesdk">[ ➠ ]</a></td>
+                                        </tr>
+                    <tr>
+                        <td>18</td>
+                        <td>Cocofun Downloader</td>
+                        <td>GET</td>
+                        <td><a href="/api/cocofundl?url=https://www.icocofun.com/share/post/276288327855?lang=id&pkg=id&share_to=copy_link&m=651b956c96e233221211357adac0551d&d=f7e690c6d0e290e25aacb609f0d682f3f566555b8c26c54a12534e106d98faae&nt=1">[ ➠ ]</a></td>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td>Soundcloud Downloader</td>
+                        <td>GET</td>
+                        <td><a href="/api/soundclouddl?url=https://soundcloud.com/hiphopologistsoroush/boz-prod-kagan-chashbeatzz">[ ➠ ]</a></td>
+                                        </tr>
+                    <tr>
+                        <td>20</td>
+                        <td>Apkadmin Downloader</td>
+                        <td>GET</td>
+                        <td><a href="/api/apkadmin?url=https://apkadmin.com/8ut1omiqw4h6/Growtopia_4.29_For_GTPS.apk.html">[ ➠ ]</a></td>
+                    </tr>
+                
+                </tbody>
+            </table>
+            <h3>Search</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Name</th>
+                        <th>Method</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Youtube Play Audio</td>
+                        <td>GET</td>
+                        <td><a href="/api/ytplay?message=aku ada">[ ➠ ]</a></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Youtube Play Video</td>
+                        <td>GET</td>
+                        <td><a href="/api/ytplayvid?message=angkasa">[ ➠ ]</a></td>
+                    </tr>
+                    <tr>
+                  
